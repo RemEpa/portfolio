@@ -1,6 +1,6 @@
 # Portfolio
 
-A minimal, terminal-inspired personal portfolio website made by me (hi, it's me Rémi).
+A minimal, terminal-inspired personal portfolio website made by me (hi, i'm me).
 
 ## Tech Stack
 

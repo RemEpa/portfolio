@@ -5,7 +5,7 @@
     "subtitle": "Fetch for the stars!",
     "description": "This project is a web app I created using React. It connects directly to NASA's official APOD API to fetch and display the latest image from space, along with the explanation provided by an astronomer.",
     "techStack": ["React", "Javascript", "CSS", "HTML", "API"],
-    "imgPath": "/portfolio/src/assets/APOD.jpg",
+    "imgPath": "/src/assets/APOD.jpg",
     "liveUrl": "https://apod-fetch.netlify.app/"
   }
 ]

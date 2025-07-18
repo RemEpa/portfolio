@@ -25,6 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v3
         with:
@@ -37,7 +44,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile  # Use --frozen-lockfile to ensure consistency
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm run build

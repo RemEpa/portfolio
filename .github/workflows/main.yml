@@ -30,22 +30,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: '9.0.x'  # Specify the version of pnpm you want to use
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
-          cache: 'npm'
+          node-version: 'lts/*'
+          cache: 'pnpm'  # Use pnpm cache
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install  # Use pnpm to install dependencies
+
       - name: Build
-        run: npm run build
+        run: pnpm run build  # Use pnpm to run the build script
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
-          path: './dist'
+          path: './dist'  # Adjust this path if your build output is different
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -29,7 +29,7 @@ section {
     bottom: 0;
     left: 12.5%;
     width: 75%;
-    height: 0.5px;
+    height: 1px;
     background-color: var(--outline-clr);
   }
 }
@@ -95,7 +95,7 @@ nav {
         content: "";
         position: absolute;
         top: 25%;
-        width: 0.5px;
+        width: 1px;
         left: 0;
         height: 50%;
         background-color: var(--outline-clr);

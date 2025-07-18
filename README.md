@@ -41,22 +41,33 @@ pnpm preview
 
 ## Project Structure
 
-```
+```sh
 portfolio/
 ├── index.html
+├── node_modules
+│   ├── typescript -> .pnpm/typescript@5.8.3/node_modules/typescript
+│   └── vite -> .pnpm/vite@6.3.5/node_modules/vite
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
-├── tsconfig.json
-├── public/
+├── public
 │   └── arrow.svg
-├── src/
+├── README.md
+├── src
+│   ├── assets
+│   │   └── APOD.jpg
+│   ├── data
+│   │   ├── dummy.json
+│   │   └── projects.json
 │   ├── main.ts
-│   ├── vite-env.d.ts
-│   ├── assets/
-│   └── styles/
-│       ├── main.css
-│       └── reset.css
+│   ├── scripts
+│   │   ├── genDummy.ts
+│   │   └── ui.ts
+│   ├── styles
+│   │   ├── main.css
+│   │   └── reset.css
+│   └── vite-env.d.ts
+└── tsconfig.json
 ```
 
 ## Credits

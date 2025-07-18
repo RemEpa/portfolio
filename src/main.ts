@@ -1,26 +1,24 @@
-console.log(`
-╔════════════════════════════════════════════════════════════════╗
-║ [remi@portfolio ~]$ ./hello                                    ║
-║                                                                ║
-║ Hi! Welcome to my website! Please enjoy your stay :)           ║
-║                                                                ║
-║ Available commands:                                            ║
-║   about()      - Learn more about me                           ║
-║   whatido()    - See what I do                                 ║
-║   contactme()  - Get in touch                                  ║
-╚════════════════════════════════════════════════════════════════╝
-`)
+import projectsData from "./data/projects.json";
 
-// Make the function accessible from the browser console
-;(window as any).about = about
+import { renderProjects, type Project } from "./scripts/ui";
+import { createDummyData } from "./scripts/genDummy";
 
-export function about() {
-  console.log(`
-╔════════════════════════════════════════════════════════════════╗
-║ [remi@portfolio ~]$ ./about                                    ║
-║                                                                ║
-║ I make things on the web, and I like to make them look good    ║
-║ and enticing.                                                  ║
-╚════════════════════════════════════════════════════════════════╝
-`)
+function main() {
+  let data: Project[] = projectsData;
+  const projectsContainer = document.querySelector(
+    "#projects-container"
+  ) as HTMLElement | null;
+
+  if (data.length < 4) {
+    for (let i = data.length + 1; i <= 4; i++) {
+      console.log(data.length);
+      data = [...data, createDummyData(i)];
+    }
+  }
+
+  if (projectsContainer) {
+    renderProjects(projectsContainer, data);
+  }
 }
+
+main();

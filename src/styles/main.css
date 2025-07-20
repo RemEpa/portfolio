@@ -195,6 +195,7 @@ nav {
   }
 
   .project-img-container {
+    position: relative;
     width: 100%;
     max-width: 100%;
     aspect-ratio: 16/9;
@@ -202,6 +203,29 @@ nav {
     overflow: hidden;
     border: solid 1px 0 1px 0 var(--outline-clr);
     background: #222;
+
+    ul {
+      display: flex;
+      position: absolute;
+      list-style: none;
+      bottom: 0;
+      right: 0;
+      background-color: var(--bg-clr);
+      border-radius: 5px 0 0 0;
+      overflow: hidden;
+
+      li {
+        & > * {
+          display: block;
+          padding: 0.5em 1em;
+          transition: background 250ms;
+
+          &:hover {
+            background: var(--outline-clr);
+          }
+        }
+      }
+    }
 
     img {
       width: 100%;

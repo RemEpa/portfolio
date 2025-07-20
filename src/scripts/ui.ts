@@ -10,45 +10,58 @@ export interface Project {
 }
 
 export function createProjectCard(project: Project): HTMLElement {
+  const {
+    id,
+    title,
+    description,
+    imgPath,
+    liveUrl,
+    subtitle,
+    techStack,
+    repoUrl,
+  } = project;
+
   const card = document.createElement("article");
   card.className = "project";
-  const listOfTech = document.createElement("ul");
-
-  project.techStack.forEach((element) => {
-    const tech = document.createElement("li");
-    tech.innerText = element;
-    listOfTech.appendChild(tech);
-  });
 
   card.innerHTML = /* html */ `
     <header>
-        <h4 class="project-title">${project.title}</h4>
-        <p class="project-subtitle">${project.subtitle}</p>
+        <h4 class="project-title">${title}</h4>
+        <p class="project-subtitle">${subtitle}</p>
     </header>
     <div class="project-img-container">
-        <img
-        src=${project.imgPath}
-        alt=${project.title + project.id} />
+        <img src=${imgPath} alt="${title} screenshot" />
+        <ul class="links">
+          <li>
+            <a href="${liveUrl}" target="_blank" rel="noopener noreferrer">
+              Website
+            </a>
+          </li>
+          ${
+            repoUrl
+              ? `
+              <li>
+                <a href="${repoUrl}" target="_blank" rel="noopener noreferrer">
+                  Github
+                </a>
+              </li>`
+              : ""
+          }
+        </ul>
     </div>
     <div class="project-description">
         <h3>Description:</h3>
-        <p class="project-description">
-        ${project.description}
-        </p>
+        <p class="project-description">${description}</p>
     </div>
     <footer class="project-footer">
-      <!-- Just a placeholder -->
+      <ul class="tech-stack">
+        ${techStack.map((tech) => `<li>${tech}</li>`).join("")}
+      </ul>
     </footer>
   `;
 
-  const footer = card.querySelector(".project-footer");
-  if (footer) {
-    footer.appendChild(listOfTech);
-  }
-
   return card;
 }
-
 
 export function renderProjects(container: HTMLElement, projects: Project[]) {
   container.innerHTML = "";

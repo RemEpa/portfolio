@@ -42,5 +42,6 @@ export function createDummyData(id: number): Project {
     techStack: randomTechStack(),
     imgPath: `https://placehold.co/600x400`,
     liveUrl: `https://example.com/sample-project-${id}`,
+    repoUrl: `https://github.com/sample-project-${id}`,
   };
 }

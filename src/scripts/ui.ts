@@ -10,16 +10,8 @@ export interface Project {
 }
 
 export function createProjectCard(project: Project): HTMLElement {
-  const {
-    id,
-    title,
-    description,
-    imgPath,
-    liveUrl,
-    subtitle,
-    techStack,
-    repoUrl,
-  } = project;
+  const { title, description, imgPath, liveUrl, subtitle, techStack, repoUrl } =
+    project;
 
   const card = document.createElement("article");
   card.className = "project";

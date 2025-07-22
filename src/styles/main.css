@@ -289,6 +289,8 @@ nav {
 
 #whoami {
   animation: fadeIn 1s ease-in-out;
+  text-align: justify;
+
   p {
     margin: 25px 0;
     line-height: 1.8;
@@ -306,8 +308,17 @@ nav {
   }
 
   strong {
-    color: #61dafb;
     text-decoration: underline;
+    transition: font-size 500ms;
+
+    &:hover {
+      font-size: 24px;
+    }
+  }
+
+  i {
+    font-style: italic;
+    font-size: 14px;
   }
 }
 
